@@ -30,6 +30,7 @@ urlpatterns = [
     path('logout/', custom_logout, name='logout'),  # Use the custom_logout view
     path('quizzes/', include('quizzes.urls')),
     path('gallery/', include ('gallery.urls')),
+    path('spinning_wheel/', include('spinning_wheel.urls')),
 ]
 
 # Serve media files in development
