@@ -1,0 +1,17 @@
+<!-- quizzes/templates/quizzes/add_question.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Add a Question to {{ quiz.title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ question_form.as_p }}
+    <button type="submit">Add Question</button>
+  </form>
+  <a href="{% if question %}{% url 'add_answer' quiz_id=quiz.id question_id=question.id %}{% endif %}">Next: Add Answers</a>
+
+
+
+
+</div> {% endblock %}
+
