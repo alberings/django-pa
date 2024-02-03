@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h2>{{ quiz.name }}</h2>
+<form method="post">
+  {% csrf_token %}
+  {% for question in questions %}
+    <div>
+      <p>{{ forloop.counter }}. {{ question.text }}</p>
+      {% for answer in question.answer_set.all %}
+        <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}">
+        <label>{{ answer.text }}</label><br>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit">Submit Answers</button>
+</form>
+{% endblock %}

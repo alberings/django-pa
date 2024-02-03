@@ -1,0 +1,14 @@
+<!-- quizzes/templates/quizzes/list_quizzes.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h2>All Quizzes</h2>
+<ul>
+    {% for quiz in quizzes %}
+    <li>
+        {{ quiz.name }}
+        <a href="{% url 'delete_quiz' quiz.id %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

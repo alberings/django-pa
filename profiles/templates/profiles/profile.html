@@ -1,0 +1,24 @@
+<!-- profiles/profile.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Profile Page for {{ user.username }}</h2>
+  <form id="quiz_form" method="get">
+      <select id="quiz_selector" name="quiz_id">
+          {% for quiz in user_quizzes %}
+              <option value="{{ quiz.id }}">{{ quiz.name }}</option>
+          {% endfor %}
+      </select>
+      <input type="submit" value="Play">
+  </form>
+  <a href="{% url 'create_quiz' %}" class="btn btn-primary">Create Quiz</a>
+  <!-- JavaScript to update form action -->
+  <script>
+      document.getElementById('quiz_form').onsubmit = function() {
+          var quizId = document.getElementById('quiz_selector').value;
+          this.action = '/quizzes/play/' + quizId + '/';
+      };
+  </script>
+  <!-- Display user profile information here -->
+  <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+{% endblock %}

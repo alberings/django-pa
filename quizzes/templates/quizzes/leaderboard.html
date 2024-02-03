@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% for session in quiz_sessions %}
+    <tr>
+        <td>{{ session.player.username }}</td>
+        <td>{{ session.score }}</td>
+        <td>
+            {% for question_id, answer_id in session.answers.items %}
+                <!-- Display each answer -->
+            {% endfor %}
+        </td>
+    </tr>
+{% endfor %}
+{% endblock %}

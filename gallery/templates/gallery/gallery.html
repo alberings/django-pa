@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<!-- gallery/templates/gallery/gallery.html -->
+<div class="gallery">
+    <a class="nav-link" href="{% url 'photo_upload' %}">Upload photo here</a>
+    {% for photo in photos %}
+        <img src="{{ photo.image.url }}" alt="Photo">
+    {% endfor %}
+</div>
+{%endblock %}
