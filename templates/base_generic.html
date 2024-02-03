@@ -5,7 +5,8 @@
     <title>{% block title %}Party Website{% endblock %}</title>
     {% block extrahead %}
     <!-- Add Bootstrap CSS here -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     {% endblock %}
 </head>
 <body>
@@ -51,7 +52,10 @@
     
     {% block extrajs %}
     <!-- Add Bootstrap JS here (if needed) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.min.js"></script>
+   <!-- Bootstrap JS and Popper.js (for Bootstrap 4) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     {% endblock %}
 </body>
 </html>

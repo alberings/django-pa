@@ -1,0 +1,49 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+/* Your styles here */
+.wheel-segment {
+    /* Styles for each segment */
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.chosen {
+    /* Highlight style for chosen item */
+    background-color: yellow;
+    color: black;
+}
+
+/* Rest of your CSS */
+</style>
+
+<h2>Spinning Wheel</h2>
+
+<!-- Form to add new items -->
+<form method="post" id="addItemForm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Item</button>
+</form>
+
+<!-- The Wheel Canvas Container -->
+<div id="wheel"></div>
+
+<!-- Spin Button -->
+<button id="spinButton" onclick="startSpin();">Spin</button>
+
+<!-- Serialization of items for use in JavaScript -->
+<script type="application/json" id="items-json">
+    {{ items_json|safe }}
+</script>
+
+<!-- Include Winwheel.js and your spin.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdn.rawgit.com/zarocknz/javascript-winwheel/master/Winwheel.min.js"></script>
+<script src="{% static 'spin.js' %}"></script>
+
+{% endblock %}
